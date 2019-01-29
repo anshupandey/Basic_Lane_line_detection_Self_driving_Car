@@ -23,10 +23,11 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 Following are the steps which my pipeline does
-1. detecting white colors
-2. canny edge detection
-3. dilation
-4. Hough tranform line detection
+1. detecting white color and yellow color strips with threshold [200,200,100] for RGB respectively
+2. Region of interest using polyfit (quadrilateral region)
+3. canny edge detection on the color filtered image
+4. dilation using kernel of size (8,8)
+5. Hough tranform line detection - in hough transform function draw_lines is used.
 5. drawing the lines
 
 
@@ -34,7 +35,7 @@ Following are the steps which my pipeline does
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-It is having issues with detecting yellow lines as I have used color based filtering initially, which needs to be fixed.
+The dilation kernel size needs to be tuned, seems there could be a better alternative of dilation.
 
 ### 3. Suggest possible improvements to your pipeline
 
